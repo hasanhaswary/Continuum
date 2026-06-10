@@ -1,12 +1,6 @@
-const providers =
-    require("../providers");
+const providers = require("../providers");
 
-async function getStreams({
-    type,
-    imdbId,
-    season,
-    episode
-}) {
+async function getStreams({ type, imdbId, season, episode }) {
 
     const streams = [];
 
@@ -14,42 +8,29 @@ async function getStreams({
 
         try {
 
-            let providerStreams = [];
+            let result = [];
 
-            if (
-                type === "movie" &&
-                provider.supportsMovie()
-            ) {
+            if (type === "movie" && provider.supportsMovie()) {
 
-                providerStreams =
-                    await provider.getMovieStreams(
-                        imdbId
-                    );
+                result = await provider.getMovieStreams(imdbId);
             }
 
-            if (
-                type === "series" &&
-                provider.supportsSeries()
-            ) {
+            if (type === "series" && provider.supportsSeries()) {
 
-                providerStreams =
-                    await provider.getEpisodeStreams(
-                        imdbId,
-                        season,
-                        episode
-                    );
+                result = await provider.getEpisodeStreams(
+                    imdbId,
+                    season,
+                    episode
+                );
             }
 
-            streams.push(
-                ...providerStreams
-            );
+            // IMPORTANT: push only stream objects
+            if (Array.isArray(result)) {
+                streams.push(...result);
+            }
 
-        } catch (error) {
-
-            console.error(
-                `${provider.name} failed`,
-                error.message
-            );
+        } catch (err) {
+            console.error(`${provider.name} failed`, err.message);
         }
     }
 
