@@ -1,8 +1,13 @@
-const { addonBuilder, serveHTTP } = require("stremio-addon-sdk");
+const { addonBuilder, serveHTTP } =
+    require("stremio-addon-sdk");
+
+const {
+    handleStreamRequest
+} = require("./handlers/streamHandler");
 
 const builder = new addonBuilder({
     id: "com.hasan.continuum",
-    version: "1.0.0",
+    version: "1.0.1",
     name: "Continuum",
     description: "Fast streaming via multiple http providers",
     logo: "utils\\logo.png",
@@ -11,10 +16,8 @@ const builder = new addonBuilder({
     catalogs: []
 });
 
-builder.defineStreamHandler(async ({ type, id }) => {
-    return {
-        streams: []
-    };
+builder.defineStreamHandler(({ type, id }) => {
+    return handleStreamRequest(type, id);
 });
 
 serveHTTP(builder.getInterface(), {
