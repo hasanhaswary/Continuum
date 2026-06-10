@@ -1,0 +1,26 @@
+{
+  "name": "continuum",
+  "version": "1.0.0",
+  "description": "A Stremio Addon that fetches streams from multiple servers. This is a non torrent addon.",
+  "main": "addon.js",
+  "scripts": {
+    "start": "node src/addon.js",
+    "dev": "node --watch src/addon.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasanhaswary/Continuum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hasanhaswary/Continuum/issues"
+  },
+  "homepage": "https://github.com/hasanhaswary/Continuum#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "stremio-addon-sdk": "^1.6.10"
+  }
+}
