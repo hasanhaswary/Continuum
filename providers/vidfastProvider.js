@@ -16,8 +16,7 @@ module.exports = {
             {
                 name: "VidFast",
                 title: "VidFast",
-                externalUrl:
-                    `https://vidfast.pro/movie/${imdbId}?autoPlay=true`
+                url:`https://vidfast.pro/movie/${imdbId}?autoPlay=true`
             }
         ];
     },
@@ -32,8 +31,7 @@ module.exports = {
             {
                 name: "VidFast",
                 title: `VidFast S${season}E${episode}`,
-                externalUrl:
-                    `https://vidfast.pro/tv/${imdbId}/${season}/${episode}?autoPlay=true`
+                url:`https://vidfast.pro/tv/${imdbId}/${season}/${episode}?autoPlay=true`
             }
         ];
     }

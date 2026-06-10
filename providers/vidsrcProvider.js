@@ -16,7 +16,7 @@ module.exports = {
             {
                 name: "VidSrc",
                 title: "VidSrc",
-                externalUrl:
+                url:
                     `https://vidsrc.xyz/embed/movie/${imdbId}`
             }
         ];
@@ -32,7 +32,7 @@ module.exports = {
             {
                 name: "VidSrc",
                 title: "VidSrc",
-                externalUrl:
+                url:
                     `https://vidsrc.xyz/embed/tv/${imdbId}/${season}/${episode}`
             }
         ];
